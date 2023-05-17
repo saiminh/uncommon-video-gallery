@@ -1,0 +1,85 @@
+.uncommon-video-gallery {
+  position: relative;
+  overflow: hidden;
+  padding-top: 1rem;
+}
+.uncommon-video-gallery-inner {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 3.5%;
+  padding-left: var(--wp--preset--spacing--outer);
+  overflow: visible;
+
+  & .wp-block-video {
+    flex: 0 0 22vw;
+    transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &:hover {
+      transform: rotate(5deg);
+    }
+    & video {
+      aspect-ratio: 3/4;
+      width: 100%;
+      object-fit: cover;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    & figcaption {
+      text-align: left;
+      display: block;
+      color: var(--wp--preset--color--contrast);
+      font-size: var(--wp--preset--font-size-body-s);
+
+      @media screen and (max-width: 599px) {
+        font-size: var(--wp--preset--font-size-body-xs);
+      }
+    }
+  }
+}
+.negative-top-margin {
+  margin-top: -16.5vw!important;
+  // @media screen and (max-width: 599px) {
+  //   margin-top: -20vw!important;
+  // }
+}
+.uncommon-video-gallery-video-modal {
+  transform-origin: 50% 50%;
+  z-index: 999999;
+  width: 100%;
+  height: auto;
+  animation: video-in 1.2s .2s  cubic-bezier(0.165, 0.84, 0.44, 1) both;
+}
+.uncommon-video-gallery-video-modal-bg {
+ position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999998;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 var(--wp--preset--spacing--outer);
+  background-color: rgba(203, 205, 250, .8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform-origin: 50% 50%;
+  animation: modal-bg-in .2s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+}
+@keyframes video-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes modal-bg-in {
+  0% {
+    transform: translateY(100%)
+  }
+  100% {
+    transform: translateY(0%)
+  }
+}
