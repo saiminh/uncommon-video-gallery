@@ -8,6 +8,10 @@ export default function Edit( { attributes, setAttributes } ) {
 		<div { ...useBlockProps({
       className: `uncommon-video-gallery ${attributes.layout}`,
     }) }>
+      <div class="label">
+        Define a poster image for each video in the right sidebar. <br/>
+        Otherwise the first frame of the video will be displayed.
+      </div>
       <InspectorControls key="setting">
         <SelectControl
           label="Layout"
