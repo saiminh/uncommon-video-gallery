@@ -13,6 +13,7 @@
   & .wp-block-video {
     flex: 0 0 22vw;
     transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
 
     &:hover {
       transform: rotate(5deg);

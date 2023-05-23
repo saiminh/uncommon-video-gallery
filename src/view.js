@@ -17,7 +17,7 @@ const animateGallery = function() {
   }
 }
 
-window.addEventListener('load', function() {
+window.addEventListener('DOMContentLoaded', function() {
   animateGallery();
   
   const videos = document.querySelectorAll('.uncommon-video-gallery video');
