@@ -1,30 +1,54 @@
 .uncommon-video-gallery {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   padding-top: 1rem;
 }
 .uncommon-video-gallery-inner {
   display: flex;
   flex-wrap: nowrap;
-  gap: 3.5%;
+  padding-top: var(--wp--preset--spacing--outer);
   padding-left: var(--wp--preset--spacing--outer);
-  overflow: visible;
-
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  cursor: grabbing;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &.dragging {
+    scroll-snap-type: none;
+  }
   & .wp-block-video {
+    scroll-snap-align: start;
+    padding: 0 0 0 3.5vw;
     flex: 0 0 22vw;
-    transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    cursor: pointer;
+    
+    &:first-child {
+      padding-left: var(--wp--preset--spacing--outer);
+      flex: 0 0 calc(22vw + var(--wp--preset--spacing--outer) - 3.5vw);
+    }
+    @media screen and (max-width: 599px) {
+      padding: 0 0 0 5vw;
+      flex: 0 0 75vw;
 
-    &:hover {
-      transform: rotate(5deg);
+      &:first-child {
+        padding-left: var(--wp--preset--spacing--outer);
+        flex: 0 0 calc(75vw + var(--wp--preset--spacing--outer) - 5vw);
+      }
     }
     & video {
+      cursor: pointer;
       aspect-ratio: 3/4;
       width: 100%;
       object-fit: cover;
       margin: 0;
       padding: 0;
       display: block;
+      transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      
+      &:hover {
+        transform: rotate(5deg);
+      }
     }
     & figcaption {
       text-align: left;
@@ -40,9 +64,6 @@
 }
 .negative-top-margin {
   margin-top: -16.5vw!important;
-  // @media screen and (max-width: 599px) {
-  //   margin-top: -20vw!important;
-  // }
 }
 .uncommon-video-gallery-video-modal {
   transform-origin: 50% 50%;

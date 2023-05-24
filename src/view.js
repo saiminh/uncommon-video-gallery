@@ -1,29 +1,46 @@
-const animateGallery = function() {
-  if (motion) {
+let isDown = false;
 
-    const gallery = document.querySelector('.uncommon-video-gallery-inner'),
-          innerWidth = document.querySelector('.uncommon-video-gallery-inner').scrollWidth,
-          excessWidth = (innerWidth - window.innerWidth),
-          innerHeight = document.querySelector('.uncommon-video-gallery-inner').offsetHeight;
-
-
-    motion.scroll(
-      motion.animate(".uncommon-video-gallery-inner", { x: [`0px`, `-${excessWidth + 0.035 * window.innerWidth}px`] }),
-      {
-        target: document.querySelector('.uncommon-video-gallery'),
-        offset: ["100% 100%", "0% 0%"]
-      }
-    )
-  }
+// drag the gallery
+const dragScrollGallery = function() {
+  if (window.matchMedia("(pointer: coarse)").matches) return;
+  const gallery = document.querySelector('.uncommon-video-gallery-inner');
+  let startX;
+  let scrollLeft;
+  gallery.addEventListener('mousedown', (e) => {
+    isDown = true;
+    gallery.classList.add('dragging');
+    gallery.classList.add('active');
+    startX = e.pageX - gallery.offsetLeft;
+    scrollLeft = gallery.scrollLeft;
+  });
+  gallery.addEventListener('mouseleave', () => {
+    isDown = false;
+    gallery.classList.remove('active');
+  });
+  gallery.addEventListener('mouseup', () => {
+    gallery.classList.remove('dragging');
+    isDown = false;
+    gallery.classList.remove('active');
+  });
+  gallery.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - gallery.offsetLeft;
+    const walk = (x - startX) * 3; //scroll-fast
+    gallery.scrollLeft = scrollLeft - walk;
+  });
 }
 
+
+
 window.addEventListener('DOMContentLoaded', function() {
-  animateGallery();
+  dragScrollGallery();
   
   const videos = document.querySelectorAll('.uncommon-video-gallery video');
   videos.forEach(video => {
 
     video.addEventListener('click', function() {
+      if (isDown) return;
       const videoClone = video.cloneNode(true);
       const modalBg = document.createElement('div');
       modalBg.classList.add('uncommon-video-gallery-video-modal-bg');
