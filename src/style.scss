@@ -67,6 +67,21 @@
   justify-content: center;
   transform-origin: 50% 50%;
   animation: modal-bg-in .2s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+
+  &::after {
+    content: 'Close ✕';
+    position: absolute;
+    top: .5em;
+    right: 0.5em;
+    padding: .5em;
+    height: 1em;
+    text-align: center;
+    border-radius: .5em;
+    background-color: var(--wp--preset--color--contrast);
+    color: var(--wp--preset--color--pigment-purple);
+    z-index: 999999;
+    cursor: pointer;
+  }
 }
 @keyframes video-in {
   0% {

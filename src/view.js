@@ -11,7 +11,7 @@ const animateGallery = function() {
       motion.animate(".uncommon-video-gallery-inner", { x: [`0px`, `-${excessWidth + 0.035 * window.innerWidth}px`] }),
       {
         target: document.querySelector('.uncommon-video-gallery'),
-        offset: [`${innerHeight}px end`, "150% end"]
+        offset: ["100% 100%", "0% 0%"]
       }
     )
   }
@@ -31,7 +31,8 @@ window.addEventListener('DOMContentLoaded', function() {
       videoClone.classList.add('uncommon-video-gallery-video-modal');
       modalBg.appendChild(videoClone);
       videoClone.play();
-      videoClone.addEventListener('click', function() {
+      videoClone.controls = true;
+      modalBg.addEventListener('click', function() {
         videoClone.pause();
         videoClone.remove();
         modalBg.remove();
