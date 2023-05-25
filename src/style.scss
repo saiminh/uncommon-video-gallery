@@ -54,10 +54,10 @@
       text-align: left;
       display: block;
       color: var(--wp--preset--color--contrast);
-      font-size: var(--wp--preset--font-size-body-xs);
+      font-size: var(--wp--preset--font-size--body-xs);
 
       @media screen and (max-width: 599px) {
-        font-size: var(--wp--preset--font-size-body-xs);
+        font-size: var(--wp--preset--font-size--body-xs);
       }
     }
   }
