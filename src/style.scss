@@ -18,10 +18,12 @@
   &.dragging {
     scroll-snap-type: none;
   }
-  & .wp-block-video {
+  & .wp-block-video,
+  & .wp-block-image {
     scroll-snap-align: start;
     padding: 0 0 0 3.5vw;
     flex: 0 0 22vw;
+    box-sizing: border-box;
     
     &:first-child {
       padding-left: var(--wp--preset--spacing--outer);
@@ -36,8 +38,8 @@
         flex: 0 0 calc(75vw + var(--wp--preset--spacing--outer) - 5vw);
       }
     }
-    & video {
-      cursor: pointer;
+    & video,
+    & img {
       aspect-ratio: 3/4;
       width: 100%;
       object-fit: cover;
@@ -49,6 +51,9 @@
       &:hover {
         transform: rotate(5deg);
       }
+    }
+    & video {
+      cursor: pointer;
     }
     & figcaption {
       text-align: left;

@@ -25,9 +25,9 @@ export default function Edit( { attributes, setAttributes } ) {
       </InspectorControls>
       <div className='uncommon-video-gallery-inner'>
         <InnerBlocks
-          allowedBlocks={['core/video']}
+          allowedBlocks={['core/video', 'core/image']}
           template={[
-            ['core/video', {}],
+            ['core/image', {}],
             ['core/video', {}],
             ['core/video', {}],
             ['core/video', {}]
