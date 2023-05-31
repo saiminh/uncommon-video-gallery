@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Uncommon Video Gallery",
 	"category": "widgets",
-	"icon": "gallery",
+	"icon": "format-gallery",
 	"description": "Gallery of videos and images that scroll out of screen. Videos enlarge on click.",
 	"supports": {
 		"html": false

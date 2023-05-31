@@ -65,6 +65,9 @@
 }
 .negative-top-margin {
   margin-top: -16.5vw!important;
+  @media screen and (max-width: 599px) {
+    margin-top: -22.5vw!important;
+  }
 }
 .uncommon-video-gallery-video-modal {
   transform-origin: 50% 50%;
