@@ -44,6 +44,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     video.addEventListener('click', function() {
       if (isDown) return;
+      video.pause();
       const videoClone = video.cloneNode(true);
       const modalBg = document.createElement('div');
       modalBg.classList.add('uncommon-video-gallery-video-modal-bg');
@@ -51,6 +52,8 @@ window.addEventListener('DOMContentLoaded', function() {
       videoClone.classList.add('uncommon-video-gallery-video-modal');
       modalBg.appendChild(videoClone);
       videoClone.play();
+      videoClone.style.pointerEvents = 'none'; 
+      //otherwise clicking on the video starts it again, while closing the modal which results in sound being played
       videoClone.controls = true;
       modalBg.addEventListener('click', function() {
         videoClone.pause();
