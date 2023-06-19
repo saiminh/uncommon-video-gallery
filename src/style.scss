@@ -29,6 +29,10 @@
       padding-left: var(--wp--preset--spacing--outer);
       flex: 0 0 calc(22vw + var(--wp--preset--spacing--outer) - 3.5vw);
     }
+    &:last-child {
+      padding-right: 3.5vw;
+      flex: 0 0 25.5vw;
+    }
     @media screen and (max-width: 599px) {
       padding: 0 0 0 5vw;
       flex: 0 0 75vw;
@@ -36,6 +40,10 @@
       &:first-child {
         padding-left: var(--wp--preset--spacing--outer);
         flex: 0 0 calc(75vw + var(--wp--preset--spacing--outer) - 5vw);
+      }
+      &:last-child {
+        padding-right: var(--wp--preset--spacing--outer);
+        flex: 0 0 calc(75vw + var(--wp--preset--spacing--outer));
       }
     }
     & video,
